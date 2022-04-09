@@ -1,20 +1,19 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.11;
 
 import "hardhat/console.sol";
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract RewardMintsToNFTHolders is ERC721 {
-    string _baseURI;
+    string _metadataURI;
 
-    constructor(string calldata baseURI) ERC721("RewardMintsToNFTHolders", "RMNH") {
-        _baseURI = baseURI;
+    constructor(string calldata metadataURI) ERC721("RewardMintsToNFTHolders", "RMNH") {
+        _metadataURI = metadataURI;
     }
 
-    function setBaseURI(string calldata baseURI) external onlyOwner {
-        return _baseURI;
+    function setmetadataURI(string calldata metadataURI) external onlyOwner {
+        return _metadataURI;
     }
-
-    
 }
