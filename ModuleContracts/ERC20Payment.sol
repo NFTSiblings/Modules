@@ -3,11 +3,25 @@ pragma solidity ^0.8.4;
 
 import "https://github.com/NFTSiblings/Smart-Contract-Templates/blob/master/Module%20Contracts/AdminPrivileges.sol";
 
-interface IERC20 {
-    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
-    function balanceOf(address account) external view returns (uint256);
-}
-
+/**
+* @dev Contract which provides ERC20 Payment functionality.
+*
+* Use modifier {requireERC20Payment} to require ERC20 payment
+* for any certain function to be run (i.e. mint function).
+*
+* Alternatively, directly invoke the {pay} function.
+*
+* Payers must approve their tokens for spending on the ERC20
+* contract prior to using any function on this contract which
+* transfers ERC20 tokens.
+*
+* Also included are tools for handling ERC20 tokens:
+*
+* {ERC20BalanceOf} queries the caller's ERC20 token balance.
+*
+* {convertDecimals} converts a small number (e.g. price) to
+* account for an ERC20 token's decimal places.
+*/
 contract ERC20Payment is AdminPrivileges {
     address public ERC20Address;
     address private payoutAddress;
@@ -32,17 +46,13 @@ contract ERC20Payment is AdminPrivileges {
     * payout address.
     */
     modifier requireERC20Payment(address from, uint amount) {
-        require(IERC20(ERC20Address).transferFrom(from, payoutAddress, amount), "ERC20 payment failed");
+        require(IERC20(ERC20Address).transferFrom(from, payoutAddress, amount), "ERC20Payment: ERC20 payment failed");
         _;
     }
 
     /**
     * @dev Pays the given amount of ERC20 tokens from the given
     * address to the payout address.
-    *
-    * Returns false is transfer fails. Use above
-    * {requireERC20Payment} modifier to ensure payment is
-    * successful.
     */
     function pay(address from, uint amount) internal requireERC20Payment(from, amount) {}
 
@@ -63,4 +73,9 @@ contract ERC20Payment is AdminPrivileges {
     function convertDecimals(uint amount) public view returns (uint) {
         return amount * 10 ** ERC20Decimals;
     }
+}
+
+interface IERC20 {
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+    function balanceOf(address account) external view returns (uint256);
 }

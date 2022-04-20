@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
+import "https://github.com/NFTSiblings/Smart-Contract-Templates/blob/master/Module%20Contracts/AdminPrivileges.sol";
+
 /**
  * @dev Contract module which facilitates a 'whitelist' sale period prior to a public sale.
  *
- * Inheriting from `wlSalePeriod` will make the {onlyDuringWLPeriod} & {onlyDuringPublicSale}
+ * Inheriting from `WLSalePeriod` will make the {onlyDuringWLPeriod} & {onlyDuringPublicSale}
  * modifiers available. {onlyDuringWLPeriod} restricts a function from being called any time
  * except for the pre-defined whitelist sale period. {onlyDuringPublicSale} restricts a
  * function from being called until the whitelist sale period has concluded.
@@ -19,7 +21,7 @@ pragma solidity ^0.8.7;
  * This contract inherits from the AdminPrivileges contract - make sure to import that
  * first.
  */
-contract wlSalePeriod is AdminPrivileges {
+contract WLSalePeriod is AdminPrivileges {
     // 1 day == 86400
     // 1 hour == 3600
 
@@ -51,7 +53,7 @@ contract wlSalePeriod is AdminPrivileges {
     modifier onlyDuringWLPeriod() {
         require(
             saleTimestamp != 0 && block.timestamp < saleTimestamp + wlSaleLength,
-            "This function may only be run during the whitelist sale period."
+            "WLSalePeriod: This function may only be run during the whitelist sale period."
         );
         _;
     }
@@ -63,7 +65,7 @@ contract wlSalePeriod is AdminPrivileges {
     modifier onlyDuringPublicSale() {
         require(
             saleTimestamp != 0 && block.timestamp >= saleTimestamp + wlSaleLength,
-            "This function may only be run after the whitelist sale period is over."
+            "WLSalePeriod: This function may only be run after the whitelist sale period is over."
         );
         _;
     }
