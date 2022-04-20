@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "https://github.com/NFTSiblings/Smart-Contract-Templates/blob/master/Module%20Contracts/AdminPrivileges.sol";
+import "https://github.com/NFTSiblings/Modules/blob/master/ModuleContracts/AdminPrivileges.sol";
 
 /**
 * @dev Contract which provides ERC20 Payment functionality.

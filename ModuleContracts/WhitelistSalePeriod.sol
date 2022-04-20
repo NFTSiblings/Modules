@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-import "https://github.com/NFTSiblings/Smart-Contract-Templates/blob/master/Module%20Contracts/AdminPrivileges.sol";
+import "https://github.com/NFTSiblings/Modules/blob/master/ModuleContracts/AdminPrivileges.sol";
 
 /**
  * @dev Contract module which facilitates a 'whitelist' sale period prior to a public sale.
