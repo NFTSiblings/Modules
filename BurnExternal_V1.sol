@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "https://github.com/NFTSiblings/Modules/blob/master/ModuleContracts/AdminPrivileges.sol";
+import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
 /**
 * @dev Use this contract when you want to have a collector
