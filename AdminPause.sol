@@ -14,11 +14,7 @@ contract AdminPause is AdminPrivileges {
      */
     event Unpaused(address account);
 
-    bool private _paused;
-
-    function paused() public view virtual returns (bool) {
-        return _paused;
-    }
+    bool public paused;
 
     /**
      * @dev Modifier to make a function callable only when the contract is not paused.
@@ -28,7 +24,7 @@ contract AdminPause is AdminPrivileges {
      * - The contract must not be paused.
      */
     modifier whenNotPaused() {
-        require(!_paused || admins[msg.sender], "AdminPausable: contract is paused");
+        require(!paused || isAdmin(msg.sender), "AdminPausable: contract is paused");
         _;
     }
 
@@ -40,7 +36,7 @@ contract AdminPause is AdminPrivileges {
      * - The contract must be paused.
      */
     modifier whenPaused() {
-        require(_paused || admins[msg.sender], "AdminPausable: contract is not paused");
+        require(paused || isAdmin(msg.sender), "AdminPausable: contract is not paused");
         _;
     }
 
@@ -48,8 +44,8 @@ contract AdminPause is AdminPrivileges {
     * @dev Toggle paused state.
     */
     function togglePause() public onlyAdmins {
-        _paused = !_paused;
-        if (_paused) {
+        paused = !paused;
+        if (paused) {
             emit Paused(msg.sender);
         } else {
             emit Unpaused(msg.sender);
