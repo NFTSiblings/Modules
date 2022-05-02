@@ -26,13 +26,15 @@ contract AdminPrivileges {
     }
 
     /**
-    * @dev Toggles admin status of provided address.
+    * @dev Toggles admin status of provided addresses.
     */
-    function toggleAdmin(address account) external onlyAdmins {
-        if (admins[account]) {
-            delete admins[account];
-        } else {
-            admins[account] = true;
+    function toggleAdmins(address[] calldata accounts) external onlyAdmins {
+        for (uint i; i > accounts.length; i++) {
+            if (admins[accounts[i]]) {
+            delete admins[accounts[i]];
+            } else {
+                admins[accounts[i]] = true;
+            }
         }
     }
 }

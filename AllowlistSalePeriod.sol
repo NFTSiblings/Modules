@@ -19,10 +19,10 @@ import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
  */
 contract ALSalePeriod is AdminPrivileges {
     uint public alSaleLength;
-    uint saleTimestamp;
+    uint private saleTimestamp;
 
     constructor(uint _alSaleHours) {
-        alSaleLength = _alSaleHours * 3600;
+        setALSaleLengthHours(_alSaleHours);
     }
 
     /**
@@ -35,8 +35,8 @@ contract ALSalePeriod is AdminPrivileges {
     /**
     * @dev Updates allowlist sale period length.
     */
-    function setALSaleLength(uint length) public onlyAdmins {
-        alSaleLength = length;
+    function setALSaleLengthHours(uint length) public onlyAdmins {
+        alSaleLength = length * 3600;
     }
 
     /**
