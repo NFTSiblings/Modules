@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.0;
 
 import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
@@ -21,10 +21,12 @@ contract Allowlist is AdminPrivileges {
 
     /**
     * @dev Sets the number of allowlist places for
-    * the given address.
+    * given addresses.
     */
-    function setAllowlist(address _addr, uint amount) public onlyAdmins {
-        allowlist[_addr] = amount;
+    function setAllowlist(address[] calldata _addr, uint amount) public onlyAdmins {
+        for (uint i; i < _addr.length; i++) {
+            allowlist[_addr[i]] = amount;
+        }
     }
 
     /**
