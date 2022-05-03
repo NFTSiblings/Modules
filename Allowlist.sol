@@ -44,7 +44,7 @@ contract Allowlist is AdminPrivileges {
     * that the msg.sender is on the allowlist.
     */
     modifier requireAllowlist() {
-        require(allowlist[msg.sender] > 0);
+        require(allowlist[msg.sender] > 0, "Allowlist: caller is not on the allowlist");
         _;
     }
 }
