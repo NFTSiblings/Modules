@@ -40,6 +40,22 @@ contract ALSalePeriod is AdminPrivileges {
     }
 
     /**
+    * @dev Returns bool indicating whether the allowlist
+    * sale phase is currently active.
+     */
+    function isAllowlistSaleActive() public view returns (bool) {
+        return saleTimestamp != 0 && block.timestamp < saleTimestamp + alSaleLength;
+    }
+
+    /**
+    * @dev Returns bool indicating whether the public sale
+    * phase is currently active.
+     */
+    function isPublicSaleActive() public view returns (bool) {
+        return block.timestamp > saleTimestamp + alSaleLength;
+    }
+
+    /**
     * @dev Restricts functions from being called except for during the allowlist
     * sale period.
     */
