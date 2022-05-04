@@ -13,7 +13,7 @@ contract RoyaltiesConfig is AdminPrivileges {
      * @dev See {IERC165-supportsInterface}. Inherit this function
      * to your base contract to add 
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override(AdminControl, ERC721, IERC165) returns (bool) {
+    function supportsInterface(bytes4 interfaceId) public view virtual returns (bool) {
         return interfaceId == _INTERFACE_ID_ROYALTIES_EIP2981 || interfaceId == _INTERFACE_ID_ROYALTIES_RARIBLE;
     }
 
