@@ -20,7 +20,7 @@ contract RoyaltiesConfig is AdminPrivileges {
     /**
     * @dev Set royalty details.
      */
-    function updateRoyalties(address payable recipient, uint256 bps) external override adminRequired {
+    function updateRoyalties(address payable recipient, uint256 bps) external override onlyAdmins {
         _royaltyRecipient = recipient;
         _royaltyBps = bps;
     }
