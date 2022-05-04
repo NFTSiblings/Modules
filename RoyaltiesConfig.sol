@@ -20,23 +20,23 @@ contract RoyaltiesConfig is AdminPrivileges {
     /**
     * @dev Set royalty details.
      */
-    function updateRoyalties(address payable recipient, uint256 bps) external override onlyAdmins {
+    function updateRoyalties(address payable recipient, uint256 bps) external virtual onlyAdmins {
         _royaltyRecipient = recipient;
         _royaltyBps = bps;
     }
 
     // RARIBLE ROYALTIES FUNCTIONS //
 
-    function getFeeRecipients(uint256) external view override returns (address payable[] memory recipients) {
-        if (_royaltyRecipient != address(0x0)) {
+    function getFeeRecipients(uint256) external virtual view returns (address payable[] memory recipients) {
+        if (_royaltyRecipient != address(0)) {
             recipients = new address payable[](1);
             recipients[0] = _royaltyRecipient;
         }
         return recipients;
     }
 
-    function getFeeBps(uint256) external view override returns (uint[] memory bps) {
-        if (_royaltyRecipient != address(0x0)) {
+    function getFeeBps(uint256) external virtual view returns (uint[] memory bps) {
+        if (_royaltyRecipient != address(0)) {
             bps = new uint256[](1);
             bps[0] = _royaltyBps;
         }
@@ -45,7 +45,7 @@ contract RoyaltiesConfig is AdminPrivileges {
 
     // EIP2981 ROYALTY STANDARD FUNCTION //
 
-    function royaltyInfo(uint256, uint256 value) external view override returns (address, uint256) {
+    function royaltyInfo(uint256, uint256 value) external virtual view returns (address, uint256) {
         return (_royaltyRecipient, value*_royaltyBps/10000);
     }
 }
