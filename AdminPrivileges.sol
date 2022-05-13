@@ -2,8 +2,8 @@
 pragma solidity ^0.8.0;
 
 /**
- * @dev Contract module that stores an address as an 'owner'
- * and addresses as 'admins'.
+ * @dev Contract module that designates an owner and admins
+ * for a smart contract.
  *
  * Inheriting from `AdminPrivileges` will make the
  * {onlyAdmins} modifier available, which can be applied to
@@ -11,12 +11,12 @@ pragma solidity ^0.8.0;
  * owner and admin addresses.
  */
 contract AdminPrivileges {
-    address public _owner;
+    address public owner;
 
     mapping(address => bool) public admins;
 
     constructor() {
-        _owner = msg.sender;
+        owner = msg.sender;
     }
 
     /**
@@ -24,7 +24,7 @@ contract AdminPrivileges {
     * or is the contract owner.
     */
     function isAdmin(address _addr) public view returns (bool) {
-        return _owner == _addr || admins[_addr];
+        return owner == _addr || admins[_addr];
     }
 
     /**
@@ -47,5 +47,13 @@ contract AdminPrivileges {
                 admins[accounts[i]] = true;
             }
         }
+    }
+
+    /**
+    * @dev Transfers ownership role to a different address.
+    */
+    function transferOwnership(address newOwner) {
+        require(msg.sender == owner, "Only contract owner can transfer ownership");
+        owner = newOwner;
     }
 }

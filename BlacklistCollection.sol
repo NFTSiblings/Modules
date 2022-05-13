@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.0;
 
 /**
-* @dev This contract exposes modifiers which require
-* the given address' balance of tokens from a
-* blacklisted collection to be 0. Use these
-* modifiers to prevent a function from being run if
-* the caller has tokens from blacklisted
-* collections.
+* @dev This contract exposes modifiers which require the given
+* address' balance of tokens from a blacklisted collection to
+* be 0. Use these modifiers to prevent a function from being
+* run if the caller has tokens from blacklisted collections.
 *
 * With great power comes great responsibility.
 */
 contract BlacklistCollection {
+    string private errMsg = "BlacklistCollection: caller owns a blacklisted token";
+
     /**
     * @dev Use this modifier to prevent any wallet which
     * has tokens from the blacklisted collection from
@@ -24,9 +24,6 @@ contract BlacklistCollection {
     * contracts. If the blacklisted contract is of type
     * ERC1155, use modifier {blacklistERC1155} instead.
     */
-
-    string private errMsg = "BlacklistCollection: msg.sender owns blacklisted token";
-
     modifier blacklistERC721(address collection, address owner) {
         require(IERC721(collection).balanceOf(owner) == 0, errMsg);
         _;

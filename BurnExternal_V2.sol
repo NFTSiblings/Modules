@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.0;
 
 /**
 * @dev Contract for burning tokens from an external collection.
@@ -12,9 +12,7 @@ pragma solidity ^0.8.4;
 * this contract will work with contracts which expose a {burn}
 * function with the correct input params.
 */
-
 contract BurnExternal {
-
     /**
     * @dev Call this function to burn tokens from an ERC721
     * collection.
@@ -22,8 +20,7 @@ contract BurnExternal {
     * Specify the address of the collection to be burned and
     * the token IDs.
     *
-    * The msg.sender must own the tokens that are to be
-    * burned.
+    * The caller must own the tokens that are to be burned.
     */
     function burnKindlingERC721(address kindlingAddress, uint256[] memory tokenIds) internal {
         for (uint i; i < tokenIds.length; i++) {
@@ -39,8 +36,7 @@ contract BurnExternal {
     * owner of the tokens, the token ID, and the amount of
     * tokens to be burned.
     *
-    * The msg.sender must own the tokens that are to be
-    * burned.
+    * The caller must own the tokens that are to be burned.
     */
     function burnKindlingERC1155(address kindlingAddress, address owner, uint256 tokenId, uint256 amount) internal {
         IERC1155(kindlingAddress).burn(owner, tokenId, amount);

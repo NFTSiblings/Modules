@@ -4,14 +4,14 @@ pragma solidity ^0.8.0;
 import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
 /**
-* @dev Allowlist contract module.
+* @dev Adds allowlist functionality to a contract.
 */
 contract Allowlist is AdminPrivileges {
     mapping(address => uint) public allowlist;
 
     /**
     * @dev Adds one to the number of allowlist places
-    * that each provided address is entitled to.
+    * for each provided address.
     */
     function addToAllowlist(address[] calldata _addr) public onlyAdmins {
         for (uint i; i < _addr.length; i++) {

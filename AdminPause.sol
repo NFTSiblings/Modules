@@ -3,6 +3,16 @@ pragma solidity ^0.8.0;
 
 import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
+/**
+* @dev Contract which adds pausing functionality. Any function on
+* which uses the {whenNotPaused} modifier will revert when the
+* contract is paused.
+*
+* Use {togglePause} to switch the paused state.
+*
+* Contract admins can run any function on a contract regardless
+* of whether it is paused.
+ */
 contract AdminPause is AdminPrivileges {
     /**
      * @dev Emitted when the pause is triggered by `account`.
@@ -25,18 +35,6 @@ contract AdminPause is AdminPrivileges {
      */
     modifier whenNotPaused() {
         require(!paused || isAdmin(msg.sender), "AdminPausable: contract is paused");
-        _;
-    }
-
-    /**
-     * @dev Modifier to make a function callable only when the contract is paused.
-     *
-     * Requirements:
-     *
-     * - The contract must be paused.
-     */
-    modifier whenPaused() {
-        require(paused || isAdmin(msg.sender), "AdminPausable: contract is not paused");
         _;
     }
 

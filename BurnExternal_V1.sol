@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.0;
 
 import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
@@ -14,7 +14,6 @@ import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 * Tokens which will burned are referred to in this
 * contract as kindling.
 */
-
 contract BurnExternal is AdminPrivileges {
     address private kindlingContractAddress;
 
