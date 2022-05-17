@@ -7,7 +7,7 @@ import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 * @dev Contract which provides ERC20 Payment functionality.
 *
 * Use modifier {requireERC20Payment} to require ERC20 payment
-* for any certain function to be run (i.e. mint function).
+* for a function to be run (i.e. mint function).
 *
 * Alternatively, directly invoke the {pay} function.
 *
@@ -21,6 +21,9 @@ import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 *
 * {convertDecimals} converts a small number (e.g. price) to
 * account for an ERC20 token's decimal places.
+*
+* See more module contracts from Sibling Labs at
+* https://github.com/NFTSiblings/Modules
 */
 contract ERC20Payment is AdminPrivileges {
     address public ERC20Address;

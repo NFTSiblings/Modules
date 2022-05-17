@@ -9,6 +9,9 @@ pragma solidity ^0.8.0;
  * {onlyAdmins} modifier available, which can be applied to
  * functions to restrict all wallets except for the stored
  * owner and admin addresses.
+ *
+* See more module contracts from Sibling Labs at
+* https://github.com/NFTSiblings/Modules
  */
 contract AdminPrivileges {
     address public owner;

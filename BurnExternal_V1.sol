@@ -4,15 +4,21 @@ pragma solidity ^0.8.0;
 import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
 /**
-* @dev Use this contract when you want to have a collector
-* burn a token from a different collection. This contract
-* is compatible with contracts which import ERC721Burnable
-* from OpenZeppelin. Alternatively, this contract can burn
-* tokens from any contract which exposes a function called
-* {burn}.
+* @dev Contract for burning tokens from an external collection.
 *
-* Tokens which will burned are referred to in this
+* Token owners must approve your contract as an operator for
+* their tokens before your contract will be able to burn them.
+*
+* This contract is compatible with contracts which utilise the
+* ERC721Burnable extension. Alternatively, this contract will
+* work with contracts which expose a {burn} function with the
+* correct input params.
+*
+* Tokens which are to be burned are referred to in this
 * contract as kindling.
+*
+* See more module contracts from Sibling Labs at
+* https://github.com/NFTSiblings/Modules
 */
 contract BurnExternal is AdminPrivileges {
     address private kindlingContractAddress;

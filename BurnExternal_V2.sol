@@ -11,6 +11,12 @@ pragma solidity ^0.8.0;
 * ERC721Burnable and ERC1155Burnable extensions. Alternatively,
 * this contract will work with contracts which expose a {burn}
 * function with the correct input params.
+*
+* Tokens which are to be burned are referred to in this
+* contract as kindling.
+*
+* See more module contracts from Sibling Labs at
+* https://github.com/NFTSiblings/Modules
 */
 contract BurnExternal {
     /**

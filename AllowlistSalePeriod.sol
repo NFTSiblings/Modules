@@ -21,6 +21,9 @@ import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
  * Contract admins can run {beginALSale} function to begin the
  * allowlist sale period, public sale period begins
  * automatically after the end of the allowlist sale period.
+ *
+ * See more module contracts from Sibling Labs at
+ * https://github.com/NFTSiblings/Modules
  */
 contract ALSalePeriod is AdminPrivileges {
     uint public alSaleLength;

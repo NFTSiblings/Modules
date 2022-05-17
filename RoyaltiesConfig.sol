@@ -7,8 +7,8 @@ import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 * @dev Contract which adds support for Rarible and EIP2981 NFT
 * royalty standards.
 *
-* Royalty recipient is set to the contract deployer by default.
-* Royalty percentage is set to 10% by default.
+* Royalty recipient is set to the contract deployer by default,
+* and royalty percentage is set to 10% by default.
 * 
 * Admins can use the {updateRoyalties} function to change the
 * royalties percentage or royalty recipient.
@@ -16,7 +16,11 @@ import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 * Rarible and LooksRare (LooksRare uses the EIP2981 NFT
 * royalty standard) are the only marketplaces which this
 * contract module will add support for. We recommend updating
-* royalty settings for other marketplaces on their websites.
+* royalty settings for other marketplaces on their
+* respective websites.
+*
+* See more module contracts from Sibling Labs at
+* https://github.com/NFTSiblings/Modules
  */
 contract RoyaltiesConfig is AdminPrivileges {
     uint256 private _royaltyBps;

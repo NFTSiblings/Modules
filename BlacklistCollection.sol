@@ -8,6 +8,9 @@ pragma solidity ^0.8.0;
 * run if the caller has tokens from blacklisted collections.
 *
 * With great power comes great responsibility.
+*
+* See more module contracts from Sibling Labs at
+* https://github.com/NFTSiblings/Modules
 */
 contract BlacklistCollection {
     string private errMsg = "BlacklistCollection: caller owns a blacklisted token";

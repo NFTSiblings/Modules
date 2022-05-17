@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
 /**
-* @dev Contract which adds pausing functionality. Any function on
+* @dev Contract which adds pausing functionality. Any function
 * which uses the {whenNotPaused} modifier will revert when the
 * contract is paused.
 *
@@ -12,6 +12,9 @@ import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 *
 * Contract admins can run any function on a contract regardless
 * of whether it is paused.
+*
+* See more module contracts from Sibling Labs at
+* https://github.com/NFTSiblings/Modules
  */
 contract AdminPause is AdminPrivileges {
     /**

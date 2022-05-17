@@ -5,6 +5,23 @@ import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
 /**
 * @dev Adds allowlist functionality to a contract.
+*
+* Allowlist is tracked with a mapping which pairs an
+* address to a uint - this provides versatile
+* functionality to your base contract.
+*
+* If your allowlist is binary (e.g. an address is
+* either allowed or not), simply check if the
+* paired uint for the address is greater than 0.
+* Alternatively, track how many allowlist places
+* each address is entitled to with the uint.
+*
+* Use the {requireAllowlist} modifier to prevent
+* a function from being run if the caller does
+* not have at least 1 allowlist place.
+*
+* See more module contracts from Sibling Labs at
+* https://github.com/NFTSiblings/Modules
 */
 contract Allowlist is AdminPrivileges {
     mapping(address => uint) public allowlist;
