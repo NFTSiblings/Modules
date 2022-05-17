@@ -1,4 +1,4 @@
-# Smart-Contract-Templates
+# Smart-Contract-Modules
 
 A range of smart contract modules available for developers to use under the MIT license.
 
