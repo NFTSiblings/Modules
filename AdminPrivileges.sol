@@ -16,7 +16,7 @@ pragma solidity ^0.8.0;
 contract AdminPrivileges {
     address public owner;
 
-    mapping(address => bool) public admins;
+    mapping(address => bool) private admins;
 
     constructor() {
         owner = msg.sender;
