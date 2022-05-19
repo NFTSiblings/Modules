@@ -1,6 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+interface IERC721 {
+    function balanceOf(address owner) external view returns (uint256 balance);
+}
+
+interface IERC1155 {
+    function balanceOf(address account, uint256 id) external view returns (uint256);
+}
+
 /**
 * @dev This contract exposes modifiers which require the given
 * address' balance of tokens from a blacklisted collection to
@@ -71,12 +79,4 @@ contract BlacklistCollection {
         }
         _;
     }
-}
-
-interface IERC721 {
-    function balanceOf(address owner) external view returns (uint256 balance);
-}
-
-interface IERC1155 {
-    function balanceOf(address account, uint256 id) external view returns (uint256);
 }

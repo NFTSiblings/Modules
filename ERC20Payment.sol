@@ -3,6 +3,11 @@ pragma solidity ^0.8.0;
 
 import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
+interface IERC20 {
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+    function balanceOf(address account) external view returns (uint256);
+}
+
 /**
 * @dev Contract which provides ERC20 Payment functionality.
 *
@@ -76,9 +81,4 @@ contract ERC20Payment is AdminPrivileges {
     function convertDecimals(uint amount) public view returns (uint) {
         return amount * 10 ** ERC20Decimals;
     }
-}
-
-interface IERC20 {
-    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
-    function balanceOf(address account) external view returns (uint256);
 }

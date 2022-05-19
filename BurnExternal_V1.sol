@@ -3,6 +3,10 @@ pragma solidity ^0.8.0;
 
 import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
+interface BurnInterface {
+    function burn(uint256 tokenId) external;
+}
+
 /**
 * @dev Contract for burning tokens from an external collection.
 *
@@ -43,8 +47,4 @@ contract BurnExternal is AdminPrivileges {
             BurnInterface(kindlingContractAddress).burn(tokenIds[i]);
         }
     }
-}
-
-interface BurnInterface {
-    function burn(uint256 tokenId) external;
 }

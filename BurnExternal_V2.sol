@@ -1,6 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+interface IERC721 {
+    function burn(uint256 tokenId) external;
+}
+
+interface IERC1155 {
+    function burn(address account, uint256 id, uint256 value) external;
+}
+
 /**
 * @dev Contract for burning tokens from an external collection.
 *
@@ -47,12 +55,4 @@ contract BurnExternal {
     function burnKindlingERC1155(address kindlingAddress, address owner, uint256 tokenId, uint256 amount) internal {
         IERC1155(kindlingAddress).burn(owner, tokenId, amount);
     }
-}
-
-interface IERC721 {
-    function burn(uint256 tokenId) external;
-}
-
-interface IERC1155 {
-    function burn(address account, uint256 id, uint256 value) external;
 }
