@@ -25,7 +25,7 @@ interface BurnInterface {
 * https://github.com/NFTSiblings/Modules
 */
 contract BurnExternal is AdminPrivileges {
-    address private kindlingContractAddress;
+    address public kindlingContractAddress;
 
     constructor(address _kindlingContractAddress) {
         updateKindlingContract(_kindlingContractAddress);
