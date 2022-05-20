@@ -29,7 +29,7 @@ contract RoyaltiesConfig is AdminPrivileges {
     bytes4 private constant _INTERFACE_ID_ROYALTIES_RARIBLE = 0xb7799584;
 
     constructor() {
-        _royaltyRecipient = msg.sender;
+        _royaltyRecipient = payable(msg.sender);
         _royaltyBps = 1000;
     }
 
