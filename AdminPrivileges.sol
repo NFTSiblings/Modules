@@ -55,7 +55,7 @@ contract AdminPrivileges {
     /**
     * @dev Transfers ownership role to a different address.
     */
-    function transferOwnership(address newOwner) {
+    function transferOwnership(address newOwner) public {
         require(msg.sender == owner, "Only contract owner can transfer ownership");
         owner = newOwner;
     }
