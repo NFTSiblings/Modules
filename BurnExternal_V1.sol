@@ -8,6 +8,11 @@ interface BurnInterface {
 }
 
 /**
+* @notice THIS PRODUCT IS IN BETA, SIBLING LABS IS NOT RESPONSIBLE FOR ANY LOST FUNDS OR
+* UNINTENDED CONSEQUENCES CAUSED BY THE USE OF THIS PRODUCT IN ANY FORM.
+*/
+
+/**
 * @dev Contract for burning tokens from an external collection.
 *
 * Token owners must approve your contract as an operator for

@@ -10,6 +10,11 @@ interface IERC1155 {
 }
 
 /**
+* @notice THIS PRODUCT IS IN BETA, SIBLING LABS IS NOT RESPONSIBLE FOR ANY LOST FUNDS OR
+* UNINTENDED CONSEQUENCES CAUSED BY THE USE OF THIS PRODUCT IN ANY FORM.
+*/
+
+/**
 * @dev This contract exposes modifiers which require the given
 * address' balance of tokens from a blacklisted collection to
 * be 0. Use these modifiers to prevent a function from being

@@ -4,6 +4,9 @@ A range of smart contract modules available for developers to use under the MIT 
 
 See all contract modules at https://github.com/NFTSiblings/Modules
 
+NOTICE: THIS PRODUCT IS IN BETA, SIBLING LABS IS NOT RESPONSIBLE FOR ANY LOST FUNDS OR
+UNINTENDED CONSEQUENCES CAUSED BY THE USE OF THIS PRODUCT IN ANY FORM.
+
 
 
 AdminPause.sol

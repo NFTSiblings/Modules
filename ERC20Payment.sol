@@ -9,6 +9,11 @@ interface IERC20 {
 }
 
 /**
+* @notice THIS PRODUCT IS IN BETA, SIBLING LABS IS NOT RESPONSIBLE FOR ANY LOST FUNDS OR
+* UNINTENDED CONSEQUENCES CAUSED BY THE USE OF THIS PRODUCT IN ANY FORM.
+*/
+
+/**
 * @dev Contract which provides ERC20 Payment functionality.
 *
 * Use modifier {requireERC20Payment} to require ERC20 payment

@@ -2,6 +2,11 @@
 pragma solidity ^0.8.0;
 
 /**
+* @notice THIS PRODUCT IS IN BETA, SIBLING LABS IS NOT RESPONSIBLE FOR ANY LOST FUNDS OR
+* UNINTENDED CONSEQUENCES CAUSED BY THE USE OF THIS PRODUCT IN ANY FORM.
+*/
+
+/**
  * @dev Contract module that designates an owner and admins
  * for a smart contract.
  *

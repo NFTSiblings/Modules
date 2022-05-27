@@ -4,6 +4,11 @@ pragma solidity ^0.8.0;
 import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
 
 /**
+* @notice THIS PRODUCT IS IN BETA, SIBLING LABS IS NOT RESPONSIBLE FOR ANY LOST FUNDS OR
+* UNINTENDED CONSEQUENCES CAUSED BY THE USE OF THIS PRODUCT IN ANY FORM.
+*/
+
+/**
 * @dev Contract which adds support for Rarible and EIP2981 NFT
 * royalty standards.
 *
