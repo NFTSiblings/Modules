@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "https://github.com/NFTSiblings/Modules/blob/master/AdminPrivileges.sol";
+import "@siblings/modules/AdminPrivileges.sol";
 
 interface BurnInterface {
     function burn(uint256 tokenId) external;
