@@ -67,7 +67,7 @@ contract ALSalePeriod is AdminPrivileges {
     * active.
      */
     function isPublicSaleActive() public view returns (bool) {
-        return saleTimestamp != 0 && block.timestamp > saleTimestamp + alSaleLength;
+        return block.timestamp >= saleTimestamp + alSaleLength;
     }
 
     /**
