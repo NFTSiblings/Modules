@@ -67,7 +67,7 @@ contract ALSalePeriod is AdminPrivileges {
     * active.
      */
     function isPublicSaleActive() public view returns (bool) {
-        return block.timestamp >= saleTimestamp + alSaleLength;
+        return saleTimestamp != 0 && block.timestamp >= saleTimestamp + alSaleLength;
     }
 
     /**
@@ -76,7 +76,7 @@ contract ALSalePeriod is AdminPrivileges {
     */
     modifier onlyDuringALPeriod() {
         require(
-            saleTimestamp != 0 && block.timestamp < saleTimestamp + alSaleLength,
+            isAllowlistSaleActive(),
             "ALSalePeriod: This function may only be run during the allowlist sale period."
         );
         _;
@@ -88,7 +88,7 @@ contract ALSalePeriod is AdminPrivileges {
     */
     modifier onlyDuringPublicSale() {
         require(
-            saleTimestamp != 0 && block.timestamp >= saleTimestamp + alSaleLength,
+            isPublicSaleActive(),
             "ALSalePeriod: This function may only be run after the allowlist sale period is over."
         );
         _;
