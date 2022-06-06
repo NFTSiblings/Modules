@@ -34,11 +34,24 @@ contract MerkleProofAllowlist is AdminPrivileges {
         merkleRoot = _merkleRoot;
     }
 
+    /**
+    * @dev Set Merkle root.
+    */
     function setMerkleRoot(bytes32 root) public onlyAdmins {
         merkleRoot = root;
     }
 
-    modifier requireMerkleProof(bytes32[] calldata _merkleProof) {
+    /**
+    * @dev Function which uses the {merkleProof} modifier. Invoke this function
+    * if you want a function to conditionally require a valid Merkle proof.
+    */
+    function requireMerkleProof(bytes32[] calldata _merkleProof) public merkleProof(_merkleProof) {}
+
+    /**
+    * @dev Modifier which requires a valid Merkle proof sent from an address
+    * which is a part of the Merkle tree.
+    */
+    modifier merkleProof(bytes32[] calldata _merkleProof) {
         bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
         require(
             MerkleProof.verify(_merkleProof, merkleRoot, leaf),
