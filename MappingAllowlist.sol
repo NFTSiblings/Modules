@@ -15,7 +15,7 @@ import "./AdminPrivileges.sol";
 * address to a uint - this provides versatile
 * functionality to your base contract.
 *
-* If your allowlist is binary (e.g. an address is
+* If your allowlist is binary (i.e. an address is
 * either allowed or not), simply check if the
 * paired uint for the address is greater than 0.
 * Alternatively, track how many allowlist places
@@ -28,15 +28,15 @@ import "./AdminPrivileges.sol";
 * See more module contracts from Sibling Labs at
 * https://github.com/NFTSiblings/Modules
 */
-contract Allowlist is AdminPrivileges {
-    mapping(address => uint) public allowlist;
+contract MappingAllowlist is AdminPrivileges {
+    mapping(address => uint256) public allowlist;
 
     /**
     * @dev Adds one to the number of allowlist places
     * for each provided address.
     */
     function addToAllowlist(address[] calldata _addr) public onlyAdmins {
-        for (uint i; i < _addr.length; i++) {
+        for (uint256 i; i < _addr.length; i++) {
             allowlist[_addr[i]]++;
         }
     }
@@ -46,7 +46,7 @@ contract Allowlist is AdminPrivileges {
     * given addresses.
     */
     function setAllowlist(address[] calldata _addr, uint amount) public onlyAdmins {
-        for (uint i; i < _addr.length; i++) {
+        for (uint256 i; i < _addr.length; i++) {
             allowlist[_addr[i]] = amount;
         }
     }
@@ -56,7 +56,7 @@ contract Allowlist is AdminPrivileges {
     * addresses - they will no longer be allowed.
     */
     function removeFromAllowList(address[] calldata _addr) public onlyAdmins {
-        for (uint i; i < _addr.length; i++) {
+        for (uint256 i; i < _addr.length; i++) {
             allowlist[_addr[i]] = 0;
         }
     }
