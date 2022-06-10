@@ -45,7 +45,7 @@ contract MerkleProofAllowlist is AdminPrivileges {
     * @dev Function which uses the {merkleProof} modifier. Invoke this function
     * if you want a function to conditionally require a valid Merkle proof.
     */
-    function requireMerkleProof(bytes32[] calldata _merkleProof) public merkleProof(_merkleProof) {}
+    function requireMerkleProof(bytes32[] calldata _merkleProof) internal merkleProof(_merkleProof) {}
 
     /**
     * @dev Modifier which requires a valid Merkle proof sent from an address
