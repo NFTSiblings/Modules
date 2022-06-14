@@ -72,7 +72,7 @@ contract OpenEdition is AdminPrivileges {
      * during the sale period.
      */
     modifier onlyDuringSale() {
-        require(isSaleActive());
+        require(isSaleActive(), "Sale is not available now");
         _;
     }
 }
