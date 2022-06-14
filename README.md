@@ -150,3 +150,20 @@ RoyaltiesConfig.sol
 * contract module will add support for. We recommend updating
 * royalty settings for other marketplaces on their
 * respective websites.
+
+OpenEdition.sol
+ * Contract module which provides functionality
+ * for an open edition NFT sale.
+ *
+ * Provide the sale length in hours to the
+ * constructor.
+ *
+ * Use {beginSale} to begin the sale. The sale
+ * period will automatically elapse and conclude.
+ *
+ * Use {isSaleActive} to check whether the sale
+ * is active.
+ * 
+ * Use the {onlyDuringSale} modifier to restrict
+ * a function from being called except during
+ * the sale period.
