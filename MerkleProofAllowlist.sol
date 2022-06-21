@@ -28,7 +28,7 @@ import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
  * https://github.com/NFTSiblings/Modules
  */
 contract MerkleProofAllowlist is AdminPrivileges {
-    bytes32 merkleRoot;
+    bytes32 public merkleRoot;
 
     constructor(bytes32 _merkleRoot) {
         merkleRoot = _merkleRoot;
