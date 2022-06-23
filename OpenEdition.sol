@@ -45,6 +45,13 @@ contract OpenEdition is AdminPrivileges {
     }
 
     /**
+     * @dev Set the exact time when the sale will begin.
+     */
+    function setSaleTimestamp(uint526 timestamp) public onlyAdmins {
+        saleTimestamp = timestamp;
+    }
+
+    /**
      * @dev Set the sale length in seconds.
      */
     function setSaleLength(uint256 length) public onlyAdmins {
@@ -62,8 +69,11 @@ contract OpenEdition is AdminPrivileges {
      * @dev Check whether the sale is currently
      * active.
      */
-    function isSaleActive() public view returns (bool) {
-        return saleTimestamp != 0 && block.timestamp < saleTimestamp + saleLength;
+    function isSaleActive() public view virtual returns (bool) {
+        return
+            saleTimestamp != 0 &&
+            block.timestamp > saleTimestamp &&
+            block.timestamp < saleTimestamp + saleLength;
     }
 
     /**

@@ -45,9 +45,9 @@ contract MappingAllowlist is AdminPrivileges {
     * @dev Sets the number of allowlist places for
     * given addresses.
     */
-    function setAllowlist(address[] calldata _addr, uint amount) public onlyAdmins {
+    function setAllowlist(address[] calldata _addr, uint256[] calldata amount) public onlyAdmins {
         for (uint256 i; i < _addr.length; i++) {
-            allowlist[_addr[i]] = amount;
+            allowlist[_addr[i]] = amount[i];
         }
     }
 

@@ -47,10 +47,16 @@ contract ERC20Payment is AdminPrivileges {
     /**
     * @dev Update details of ERC20 token.
     */
-    function updateERC20(address _ERC20Address, address _payoutAddress, uint _ERC20Decimals) public onlyAdmins {
+    function updateERC20(address _ERC20Address, uint _ERC20Decimals) public onlyAdmins {
         ERC20Address = _ERC20Address;
-        payoutAddress = _payoutAddress;
         ERC20Decimals = _ERC20Decimals;
+    }
+
+    /**
+    * @dev Update payout address for ERC20 tokens.
+    */
+    function updatePayoutAddress(address payee) public onlyAdmins {
+        payoutAddress = payee;
     }
 
     /**

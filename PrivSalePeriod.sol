@@ -48,6 +48,13 @@ contract PrivSalePeriod is AdminPrivileges {
     }
 
     /**
+     * @dev Set the exact time when the private sale will begin.
+     */
+    function setSaleTimestamp(uint526 timestamp) public onlyAdmins {
+        saleTimestamp = timestamp;
+    }
+
+    /**
     * @dev Updates private sale length. Length
     * argument must provide a whole number of
     * hours.
@@ -60,15 +67,18 @@ contract PrivSalePeriod is AdminPrivileges {
     * @dev Returns whether the private sale phase is
     * currently active.
      */
-    function isPrivSaleActive() public view returns (bool) {
-        return saleTimestamp != 0 && block.timestamp < saleTimestamp + privSaleLength;
+    function isPrivSaleActive() public view virtual returns (bool) {
+        return
+            saleTimestamp != 0 &&
+            block.timestamp > saleTimestamp &&
+            block.timestamp < saleTimestamp + privSaleLength;
     }
 
     /**
     * @dev Returns whether the public sale is currently
     * active.
      */
-    function isPublicSaleActive() public view returns (bool) {
+    function isPublicSaleActive() public view virtual returns (bool) {
         return saleTimestamp != 0 && block.timestamp >= saleTimestamp + privSaleLength;
     }
 
