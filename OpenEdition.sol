@@ -47,7 +47,7 @@ contract OpenEdition is AdminPrivileges {
     /**
      * @dev Set the exact time when the sale will begin.
      */
-    function setSaleTimestamp(uint526 timestamp) public onlyAdmins {
+    function setSaleTimestamp(uint256 timestamp) public onlyAdmins {
         saleTimestamp = timestamp;
     }
 
