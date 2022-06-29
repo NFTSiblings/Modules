@@ -72,7 +72,7 @@ contract OpenEdition is AdminPrivileges {
     function isSaleActive() public view virtual returns (bool) {
         return
             saleTimestamp != 0 &&
-            block.timestamp > saleTimestamp &&
+            block.timestamp >= saleTimestamp &&
             block.timestamp < saleTimestamp + saleLength;
     }
 
