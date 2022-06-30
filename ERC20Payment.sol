@@ -89,7 +89,7 @@ contract ERC20Payment is AdminPrivileges {
     * e.g. 7 ASH becomes 7000000000000000000 (ASH token has 18
     * decimals).
     */
-    function convertDecimals(uint amount) public view returns (uint) {
+    function convertERC20Decimals(uint amount) internal view returns (uint) {
         return amount * 10 ** ERC20Decimals;
     }
 }
