@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import "./AdminPrivileges.sol";
 
-interface IERC20 {
+interface _IERC20 {
     function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
     function balanceOf(address account) external view returns (uint256);
 }
@@ -65,7 +65,7 @@ contract ERC20Payment is AdminPrivileges {
     * payout address.
     */
     modifier requireERC20Payment(address from, uint amount) {
-        require(IERC20(ERC20Address).transferFrom(from, payoutAddress, amount), "ERC20Payment: ERC20 payment failed");
+        require(_IERC20(ERC20Address).transferFrom(from, payoutAddress, amount), "ERC20Payment: ERC20 payment failed");
         _;
     }
 
@@ -79,7 +79,7 @@ contract ERC20Payment is AdminPrivileges {
     * @dev Queries the ERC20 token balance of an address.
     */
     function ERC20BalanceOf(address _addr) internal view returns (uint) {
-        return IERC20(ERC20Address).balanceOf(_addr);
+        return _IERC20(ERC20Address).balanceOf(_addr);
     }
 
     /**
