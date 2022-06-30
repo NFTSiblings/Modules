@@ -40,8 +40,8 @@ contract ERC20Payment is AdminPrivileges {
     address private payoutAddress;
     uint private ERC20Decimals;
 
-    constructor(address _ERC20Address, address _payoutAddress, uint _ERC20Decimals) {
-        updateERC20(_ERC20Address, _payoutAddress, _ERC20Decimals);
+    constructor(address _ERC20Address, uint _ERC20Decimals) {
+        updateERC20(_ERC20Address, _ERC20Decimals);
     }
 
     /**
