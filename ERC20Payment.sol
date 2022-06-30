@@ -65,7 +65,10 @@ contract ERC20Payment is AdminPrivileges {
     * payout address.
     */
     modifier requireERC20Payment(address from, uint amount) {
-        require(_IERC20(ERC20Address).transferFrom(from, payoutAddress, amount), "ERC20Payment: ERC20 payment failed");
+        require(
+            _IERC20(ERC20Address).transferFrom(from, payoutAddress, amount),
+            "ERC20Payment: ERC20 payment failed"
+        );
         _;
     }
 
@@ -73,7 +76,7 @@ contract ERC20Payment is AdminPrivileges {
     * @dev Pays the given amount of ERC20 tokens from the given
     * address to the payout address.
     */
-    function pay(address from, uint amount) internal requireERC20Payment(from, amount) {}
+    function payERC20(address from, uint amount) internal requireERC20Payment(from, amount) {}
 
     /**
     * @dev Queries the ERC20 token balance of an address.
