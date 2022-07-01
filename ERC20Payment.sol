@@ -41,21 +41,22 @@ contract ERC20Payment is AdminPrivileges {
     uint private ERC20Decimals;
 
     constructor(address _ERC20Address, uint _ERC20Decimals) {
+        payoutAddress = msg.sender;
         updateERC20(_ERC20Address, _ERC20Decimals);
     }
 
     /**
-    * @dev Update details of ERC20 token.
+    * @dev Set details of ERC20 token.
     */
-    function updateERC20(address _ERC20Address, uint _ERC20Decimals) public onlyAdmins {
+    function setERC20(address _ERC20Address, uint _ERC20Decimals) public onlyAdmins {
         ERC20Address = _ERC20Address;
         ERC20Decimals = _ERC20Decimals;
     }
 
     /**
-    * @dev Update payout address for ERC20 tokens.
+    * @dev Set payout address for ERC20 tokens.
     */
-    function updatePayoutAddress(address payee) public onlyAdmins {
+    function setPayoutAddress(address payee) public onlyAdmins {
         payoutAddress = payee;
     }
 
