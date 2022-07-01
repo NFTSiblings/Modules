@@ -42,7 +42,7 @@ contract ERC20Payment is AdminPrivileges {
 
     constructor(address _ERC20Address, uint _ERC20Decimals) {
         payoutAddress = msg.sender;
-        updateERC20(_ERC20Address, _ERC20Decimals);
+        setERC20(_ERC20Address, _ERC20Decimals);
     }
 
     /**
