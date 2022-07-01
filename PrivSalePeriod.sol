@@ -70,7 +70,7 @@ contract PrivSalePeriod is AdminPrivileges {
     function isPrivSaleActive() public view virtual returns (bool) {
         return
             saleTimestamp != 0 &&
-            block.timestamp > saleTimestamp &&
+            block.timestamp >= saleTimestamp &&
             block.timestamp < saleTimestamp + privSaleLength;
     }
 
