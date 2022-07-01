@@ -1,6 +1,6 @@
 {
   "name": "@siblings/modules",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "Inheritable smart contract modules to add functionality to your NFT project. Currently in beta. Read more at https://github.com/NFTSiblings/Modules",
   "main": "index.js",
   "scripts": {
