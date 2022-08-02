@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/NFTSiblings/Modules/issues"
   },
-  "homepage": "https://github.com/NFTSiblings/Modules#readme"
+  "homepage": "https://github.com/NFTSiblings/Modules#readme",
+  "dependencies": {
+    "hardhat": "^2.10.1"
+  }
 }
